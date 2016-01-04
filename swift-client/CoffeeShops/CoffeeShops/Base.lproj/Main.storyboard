@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8MU-Rz-Wtu">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Coffee Shop List-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="Coffee Shop List" id="BYZ-38-t0r" customClass="ViewController" customModule="CoffeeShops" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Igm-Hd-Dia">
+                                <rect key="frame" x="38" y="64" width="300" height="559"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Vh9-Nu-AFb"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CoffeeShopCell" id="D2D-lR-znk">
+                                        <rect key="frame" x="0.0" y="92" width="300" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D2D-lR-znk" id="BCv-XQ-f6V">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="EYs-NP-oV6"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="zmf-GQ-TeG"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Igm-Hd-Dia" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="4FB-Qb-Bza"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Igm-Hd-Dia" secondAttribute="bottom" constant="44" id="Ltf-zz-8ck"/>
+                            <constraint firstItem="Igm-Hd-Dia" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rAX-nJ-dxz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Coffee Shop List" id="U0b-qu-613">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="7bT-F1-mcH">
+                            <connections>
+                                <segue destination="wCq-qF-IN3" kind="presentation" id="jt8-c5-FtY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Igm-Hd-Dia" id="e8C-PG-hGv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.5" y="-307.5"/>
+        </scene>
+        <!--Add New Coffee Shop-->
+        <scene sceneID="pOe-9M-dNC">
+            <objects>
+                <viewController title="Add New Coffee Shop" id="MKs-oP-iXk" customClass="AddNewCoffeeShopViewController" customModule="CoffeeShops" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6qp-R2-8Ic"/>
+                        <viewControllerLayoutGuide type="bottom" id="TUN-dt-JN9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mkc-cm-P81">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F6G-4S-QBB">
+                                <rect key="frame" x="65" y="119" width="244" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wqc-5V-JRO">
+                                <rect key="frame" x="65" y="195" width="244" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Wqc-5V-JRO" firstAttribute="trailing" secondItem="F6G-4S-QBB" secondAttribute="trailing" id="8Bk-nq-cmg"/>
+                            <constraint firstItem="F6G-4S-QBB" firstAttribute="centerX" secondItem="mkc-cm-P81" secondAttribute="centerX" id="9Xe-2d-teJ"/>
+                            <constraint firstItem="F6G-4S-QBB" firstAttribute="top" secondItem="6qp-R2-8Ic" secondAttribute="bottom" constant="57" id="FT4-1A-R4R"/>
+                            <constraint firstItem="Wqc-5V-JRO" firstAttribute="top" secondItem="F6G-4S-QBB" secondAttribute="bottom" constant="46" id="FTI-Gw-K36"/>
+                            <constraint firstItem="Wqc-5V-JRO" firstAttribute="leading" secondItem="F6G-4S-QBB" secondAttribute="leading" id="IFX-iU-JxR"/>
+                            <constraint firstItem="F6G-4S-QBB" firstAttribute="leading" secondItem="mkc-cm-P81" secondAttribute="leadingMargin" constant="49" id="b5G-h2-bPN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add New Coffee Shop" id="2OY-cz-sUv">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="b0M-Ye-hQF">
+                            <connections>
+                                <segue destination="Pbx-Z5-3ny" kind="unwind" identifier="unwindToList" unwindAction="unwindToList:" id="NBS-XE-nhc"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="SdX-sK-myQ">
+                            <connections>
+                                <action selector="actionDoneButton:" destination="MKs-oP-iXk" id="o61-ue-NMS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cityField" destination="Wqc-5V-JRO" id="wpS-LS-AkM"/>
+                        <outlet property="nameField" destination="F6G-4S-QBB" id="T36-zO-NZ2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4f4-J8-ZqH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Pbx-Z5-3ny" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2113.5" y="-307.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yi5-12-cdf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8MU-Rz-Wtu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hUU-Dg-gRW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="s7h-gO-cc0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JXs-2n-flO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="546" y="-307"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="egY-8J-Qhc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wCq-qF-IN3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fzl-MN-Urp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MKs-oP-iXk" kind="relationship" relationship="rootViewController" id="rtv-mN-ogs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wo3-29-aLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1573.5" y="-307.5"/>
+        </scene>
+    </scenes>
+</document>
