@@ -13,6 +13,8 @@ class AddNewCoffeeShopViewController: UIViewController {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var cityField: UITextField!
 
+    var coffeeShop: CoffeeShop?
+
     @IBAction func actionDoneButton(sender: AnyObject) {
         if nameField.text == "" {
             let alert = UIAlertController(
@@ -36,13 +38,17 @@ class AddNewCoffeeShopViewController: UIViewController {
             return
         }
 
-        let newModel = AppDelegate.coffeeShopRepo.modelWithDictionary(nil) as! CoffeeShop
-        newModel.name = nameField.text!
-        newModel.city = cityField.text!
+        coffeeShop = nil
+        let newCoffeeShop = AppDelegate.coffeeShopRepo.modelWithDictionary(nil) as! CoffeeShop
+        newCoffeeShop.name = nameField.text!
+        newCoffeeShop.city = cityField.text!
 
-        newModel.saveWithSuccess(
+        print("Adding \(newCoffeeShop)")
+        newCoffeeShop.saveWithSuccess(
             { () -> Void in
                 // success block
+                print("Added!")
+                self.coffeeShop = newCoffeeShop;
                 self.performSegueWithIdentifier("unwindToList", sender: self)
             },
             failure: { (error: NSError!) -> Void in

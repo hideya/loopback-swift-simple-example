@@ -1,4 +1,4 @@
-# LoopBack Client in Swift - A Simple Example
+# LoopBack Client in Swift 2 - A Simple Example
 
 This is a simple LoopBack client written in Swift using an in-development version of LoopBack iOS SDK.
 
@@ -6,8 +6,8 @@ This basically is a Swift version of the iOS client found in this tutorial: ["Ho
 
  * Written in Swift, rather than Objective-C.
  * The LoopBack API server used in this demo is created by following [Getting started with LoopBack/Create a simple API](https://docs.strongloop.com/display/public/LB/Create+a+simple+API) instead of [the one](https://docs.strongloop.com/display/DOC/Creating+a+LoopBack+application) referenced in Step 2 of [the original tutorial](https://strongloop.com/strongblog/how-to-crud-ios-nodejs-loopback-api-server-part-1/), since it doesn't seem to exist anymore.  Because of this change, the app deals with `CoffeeShops` instead of `Books`.
- * The client workspace already includes an module-enabled version of LoopBack iOS SDK (`LoopBack.framework`).  So, no need to download one.  **The `LoopBack.framework` bundled is an in-development version of [strongloop/loopback-sdk-ios](https://github.com/strongloop/loopback-sdk-ios) at revhash of `897293f` (12/25/2015)**.
- * Includes minor changes like removal of the refresh button and bug fixes.
+ * The client workspace already includes an module-enabled version of the LoopBack iOS SDK framework.  **The bundled `LoopBack.framework` is an in-development version of [strongloop/loopback-sdk-ios](https://github.com/strongloop/loopback-sdk-ios) at revhash of `897293f` (12/25/2015)**.
+ * Swipe-to-delete feature of the table view is added to demonstrate deletion of a model.
 
 ### How to Try Out
 
@@ -68,11 +68,11 @@ Find all the models:
 Create a new model:
 
 ```
-    let newModel = coffeeShopRepo.modelWithDictionary(nil) as! CoffeeShop
-    newModel.name = nameField.text!
-    newModel.city = cityField.text!
+    let newCoffeeShop = coffeeShopRepo.modelWithDictionary(nil) as! CoffeeShop
+    newCoffeeShop.name = nameField.text!
+    newCoffeeShop.city = cityField.text!
 
-    newModel.saveWithSuccess(
+    newCoffeeShop.saveWithSuccess(
         { () -> Void in
             // success block
             ...
@@ -83,3 +83,16 @@ Create a new model:
         })
 ```
 
+Delete an existing model:
+
+```
+    coffeeShop.destroyWithSuccess(
+        { () -> Void in
+            // success block
+            ...
+        },
+        failure: { (error: NSError!) -> Void in
+            // failure block
+            ...
+        })
+```

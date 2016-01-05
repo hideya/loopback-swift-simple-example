@@ -19,11 +19,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Igm-Hd-Dia">
-                                <rect key="frame" x="38" y="64" width="300" height="559"/>
+                                <rect key="frame" x="38" y="64" width="300" height="545"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="Vh9-Nu-AFb"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CoffeeShopCell" id="D2D-lR-znk">
                                         <rect key="frame" x="0.0" y="92" width="300" height="44"/>
@@ -39,12 +36,22 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="zmf-GQ-TeG"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1bu-ek-1mG">
+                                <rect key="frame" x="162" y="617" width="53" height="30"/>
+                                <state key="normal" title="Refresh"/>
+                                <connections>
+                                    <action selector="actionRefresh:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h8c-Bu-02e"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Igm-Hd-Dia" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="4FB-Qb-Bza"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Igm-Hd-Dia" secondAttribute="bottom" constant="44" id="Ltf-zz-8ck"/>
-                            <constraint firstItem="Igm-Hd-Dia" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rAX-nJ-dxz"/>
+                            <constraint firstItem="Igm-Hd-Dia" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="SJw-ac-tFY"/>
+                            <constraint firstAttribute="bottom" secondItem="1bu-ek-1mG" secondAttribute="bottom" constant="20" symbolic="YES" id="gPp-Tr-ap1"/>
+                            <constraint firstItem="Igm-Hd-Dia" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iwh-a6-pax"/>
+                            <constraint firstItem="1bu-ek-1mG" firstAttribute="top" secondItem="Igm-Hd-Dia" secondAttribute="bottom" constant="8" symbolic="YES" id="kkc-aM-uZT"/>
+                            <constraint firstItem="Igm-Hd-Dia" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="22" id="uU9-fa-OaQ"/>
+                            <constraint firstItem="1bu-ek-1mG" firstAttribute="centerX" secondItem="Igm-Hd-Dia" secondAttribute="centerX" id="xuP-fQ-v6C"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Coffee Shop List" id="U0b-qu-613">
@@ -74,25 +81,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F6G-4S-QBB">
-                                <rect key="frame" x="65" y="119" width="244" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wqc-5V-JRO">
+                                <rect key="frame" x="65" y="195" width="244" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wqc-5V-JRO">
-                                <rect key="frame" x="65" y="195" width="244" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F6G-4S-QBB">
+                                <rect key="frame" x="65" y="119" width="244" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Wqc-5V-JRO" firstAttribute="trailing" secondItem="F6G-4S-QBB" secondAttribute="trailing" id="8Bk-nq-cmg"/>
-                            <constraint firstItem="F6G-4S-QBB" firstAttribute="centerX" secondItem="mkc-cm-P81" secondAttribute="centerX" id="9Xe-2d-teJ"/>
-                            <constraint firstItem="F6G-4S-QBB" firstAttribute="top" secondItem="6qp-R2-8Ic" secondAttribute="bottom" constant="57" id="FT4-1A-R4R"/>
-                            <constraint firstItem="Wqc-5V-JRO" firstAttribute="top" secondItem="F6G-4S-QBB" secondAttribute="bottom" constant="46" id="FTI-Gw-K36"/>
-                            <constraint firstItem="Wqc-5V-JRO" firstAttribute="leading" secondItem="F6G-4S-QBB" secondAttribute="leading" id="IFX-iU-JxR"/>
-                            <constraint firstItem="F6G-4S-QBB" firstAttribute="leading" secondItem="mkc-cm-P81" secondAttribute="leadingMargin" constant="49" id="b5G-h2-bPN"/>
+                            <constraint firstItem="Wqc-5V-JRO" firstAttribute="top" secondItem="F6G-4S-QBB" secondAttribute="bottom" constant="46" id="5Y6-hM-8ff"/>
+                            <constraint firstItem="F6G-4S-QBB" firstAttribute="top" secondItem="6qp-R2-8Ic" secondAttribute="bottom" constant="55" id="LEv-Kw-mLW"/>
+                            <constraint firstItem="Wqc-5V-JRO" firstAttribute="trailing" secondItem="F6G-4S-QBB" secondAttribute="trailing" id="Nxi-WK-j3N"/>
+                            <constraint firstItem="F6G-4S-QBB" firstAttribute="leading" secondItem="mkc-cm-P81" secondAttribute="leadingMargin" constant="49" id="OrR-Tw-7Lp"/>
+                            <constraint firstItem="F6G-4S-QBB" firstAttribute="leading" secondItem="Wqc-5V-JRO" secondAttribute="leading" id="YY8-qT-tKH"/>
+                            <constraint firstItem="Wqc-5V-JRO" firstAttribute="centerX" secondItem="mkc-cm-P81" secondAttribute="centerX" id="xXJ-vx-hTy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add New Coffee Shop" id="2OY-cz-sUv">
