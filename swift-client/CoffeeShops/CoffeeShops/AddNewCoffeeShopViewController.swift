@@ -38,7 +38,6 @@ class AddNewCoffeeShopViewController: UIViewController {
             return
         }
 
-        coffeeShop = nil
         let newCoffeeShop = AppDelegate.coffeeShopRepo.modelWithDictionary(nil) as! CoffeeShop
         newCoffeeShop.name = nameField.text!
         newCoffeeShop.city = cityField.text!

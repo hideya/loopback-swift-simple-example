@@ -6,7 +6,7 @@ This basically is a Swift version of the iOS client found in this tutorial: ["Ho
 
  * Written in Swift, rather than Objective-C.
  * The LoopBack API server used in this demo is created by following [Getting started with LoopBack/Create a simple API](https://docs.strongloop.com/display/public/LB/Create+a+simple+API) instead of [the one](https://docs.strongloop.com/display/DOC/Creating+a+LoopBack+application) referenced in Step 2 of [the original tutorial](https://strongloop.com/strongblog/how-to-crud-ios-nodejs-loopback-api-server-part-1/), since it doesn't seem to exist anymore.  Because of this change, the app deals with `CoffeeShops` instead of `Books`.
- * The client workspace already includes an module-enabled version of the LoopBack iOS SDK framework.  **The bundled `LoopBack.framework` is an in-development version of [strongloop/loopback-sdk-ios](https://github.com/strongloop/loopback-sdk-ios) at revhash of `897293f` (12/25/2015)**.
+ * The client workspace already includes a module-enabled version of the LoopBack iOS SDK framework.  **The bundled `LoopBack.framework` is an in-development version of [strongloop/loopback-sdk-ios](https://github.com/strongloop/loopback-sdk-ios) at revhash of `897293f` (12/25/2015)**.
  * Swipe-to-delete feature of the table view is added to demonstrate deletion of a model.
 
 ### How to Try Out
