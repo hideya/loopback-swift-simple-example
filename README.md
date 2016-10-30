@@ -46,7 +46,7 @@ class CoffeeShopRepository: LBPersistedModelRepository {
 Instantiation of the adapter and the repository:
 
 ```
-    let adapter = LBRESTAdapter(URL: NSURL(string: "http://localhost:3000/api"))
+    static let adapter = LBRESTAdapter(url: URL(string: "http://localhost:3000/api"))
     let coffeeShopRepo = adapter.repositoryWithClass(CoffeeShopRepository) as! CoffeeShopRepository
 ```
 
