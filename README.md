@@ -1,4 +1,4 @@
-# LoopBack Client in Swift 2 - A Simple Example
+# LoopBack Client in Swift 3 - A Simple Example
 
 This is a simple LoopBack client written in Swift using an in-development version of LoopBack iOS SDK.
 
@@ -11,7 +11,7 @@ This basically is a Swift version of the iOS client found in this tutorial: ["Ho
 
 ### How to Try Out
 
- 1. Clone the repo: e.g. `git clone https://github.com/hideya/loopback-swift-simple-example`
+ 1. Clone the repo: e.g. `https://github.com/hm-91/loopback-swift-simple-example.git`
  *  `cd test-server`
  *  `npm install` to install the node modules required by the server.
  *  `node .` to run the server.
@@ -53,13 +53,13 @@ Instantiation of the adapter and the repository:
 Find all the models:
 
 ```
-    coffeeShopRepo.allWithSuccess(
-        { (models: [AnyObject]!) -> Void in
+    coffeeShopRepo.all(
+            success: { (models) -> Void in
             // success block
             let tableData = models as! [CoffeeShop]
             ...
         },
-        failure: { (error: NSError!) -> Void in
+        failure: { (error: Error?) -> Void in
             // failure block
             ...
         })
@@ -72,12 +72,12 @@ Create a new model:
     newCoffeeShop.name = nameField.text!
     newCoffeeShop.city = cityField.text!
 
-    newCoffeeShop.saveWithSuccess(
-        { () -> Void in
+    newCoffeeShop.save(
+            success: { () -> Void in
             // success block
             ...
         },
-        failure: { (error: NSError!) -> Void in
+        failure: { (error: Error?) -> Void in
             // failure block
             ...
         })
@@ -86,12 +86,13 @@ Create a new model:
 Delete an existing model:
 
 ```
-    coffeeShop.destroyWithSuccess(
-        { () -> Void in
+        coffeeShop.destroy(
+                success: { () -> Void in
+
             // success block
             ...
         },
-        failure: { (error: NSError!) -> Void in
+        failure: { (error: Error?) -> Void in
             // failure block
             ...
         })
