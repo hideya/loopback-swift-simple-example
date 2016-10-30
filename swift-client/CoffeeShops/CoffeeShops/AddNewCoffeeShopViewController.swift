@@ -15,15 +15,15 @@ class AddNewCoffeeShopViewController: UIViewController {
 
     var coffeeShop: CoffeeShop?
 
-    @IBAction func actionDoneButton(_ sender: AnyObject) {
+    @IBAction func actionDoneButton(sender: AnyObject) {
         if nameField.text == "" {
             let alert = UIAlertController(
                 title: "Missing Coffee Shop Name!",
                 message:"You have to enter a coffee shop name.",
-                preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .default) { _ in }
+                preferredStyle: .Alert)
+            let action = UIAlertAction(title: "OK", style: .Default) { _ in }
             alert.addAction(action)
-            self.present(alert, animated: true) {}
+            self.presentViewController(alert, animated: true) {}
             return
         }
 
@@ -31,26 +31,26 @@ class AddNewCoffeeShopViewController: UIViewController {
             let alert = UIAlertController(
                 title: "Missing City Name!",
                 message:"You have to enter a city name.",
-                preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .default) { _ in }
+                preferredStyle: .Alert)
+            let action = UIAlertAction(title: "OK", style: .Default) { _ in }
             alert.addAction(action)
-            self.present(alert, animated: true) {}
+            self.presentViewController(alert, animated: true) {}
             return
         }
 
-        let newCoffeeShop = AppDelegate.coffeeShopRepo.model(with: nil) as! CoffeeShop
+        let newCoffeeShop = AppDelegate.coffeeShopRepo.modelWithDictionary(nil) as! CoffeeShop
         newCoffeeShop.name = nameField.text!
         newCoffeeShop.city = cityField.text!
 
         print("Adding \(newCoffeeShop)")
-        newCoffeeShop.save(
-            success: { () -> Void in
+        newCoffeeShop.saveWithSuccess(
+            { () -> Void in
                 // success block
                 print("Added!")
                 self.coffeeShop = newCoffeeShop;
-                self.performSegue(withIdentifier: "unwindToList", sender: self)
+                self.performSegueWithIdentifier("unwindToList", sender: self)
             },
-            failure: { (error: Error?) -> Void in
+            failure: { (error: NSError!) -> Void in
                 // failure block
                 print(error)
         })
