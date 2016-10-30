@@ -19,16 +19,18 @@ class ViewController: UIViewController, UITableViewDataSource {
         reloadCoffeeShops()
     }
 
+    
     func reloadCoffeeShops() {
         print("Reloading Coffee Shops...")
-        AppDelegate.coffeeShopRepo.allWithSuccess(
-            { (models: [AnyObject]!) -> Void in
+
+        AppDelegate.coffeeShopRepo.all(
+            success: { (models) -> Void in
                 // success block
                 print(models)
                 self.tableData = models as! [CoffeeShop]
                 self.tableView.reloadData()
             },
-            failure: { (error: NSError!) -> Void in
+            failure: { (error: Error?) -> Void in
                 // failure block
                 print(error)
         })
@@ -36,31 +38,31 @@ class ViewController: UIViewController, UITableViewDataSource {
 
     // MARK: - UITableViewDataSource
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableData.count
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CoffeeShopCell", forIndexPath: indexPath)
-        let coffeeShop = tableData[indexPath.row]
-        cell.textLabel?.text = "\(coffeeShop.name) in \(coffeeShop.city)"
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CoffeeShopCell", for: indexPath)
+        let coffeeShop = tableData[(indexPath as NSIndexPath).row]
+        cell.textLabel?.text = "\(coffeeShop.name!) in \(coffeeShop.city!)"
 
         return cell
     }
 
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
             // Delete the row from the data source
-            let coffeeShop = tableData[indexPath.row]
+            let coffeeShop = tableData[(indexPath as NSIndexPath).row]
             print("Deleting \(coffeeShop)")
-            coffeeShop.destroyWithSuccess(
-                { () -> Void in
+            coffeeShop.destroy(
+                success: { () -> Void in
                     // success block
                     print("Deleted!")
-                    self.tableData.removeAtIndex(indexPath.row)
-                    self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                    self.tableData.remove(at: indexPath.row)
+                    self.tableView.deleteRows(at: [indexPath], with: .automatic)
                 },
-                failure: { (error: NSError!) -> Void in
+                failure: { (error: Error?) -> Void in
                     // failure block
                     print(error)
             })
@@ -69,15 +71,15 @@ class ViewController: UIViewController, UITableViewDataSource {
 
     // MARK: - IBActions
 
-    @IBAction func actionRefresh(sender: AnyObject) {
+    @IBAction func actionRefresh(_ sender: AnyObject) {
         reloadCoffeeShops()
     }
 
-    @IBAction func unwindToList(segue: UIStoryboardSegue) {
-        if let sourceViewController = segue.sourceViewController as? AddNewCoffeeShopViewController, newCoffeeShop = sourceViewController.coffeeShop {
+    @IBAction func unwindToList(_ segue: UIStoryboardSegue) {
+        if let sourceViewController = segue.source as? AddNewCoffeeShopViewController, let newCoffeeShop = sourceViewController.coffeeShop {
             tableData.append(newCoffeeShop)
-            let indexPath = NSIndexPath(forRow: tableData.count - 1, inSection: 0)
-            tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            let indexPath = IndexPath(row: tableData.count - 1, section: 0)
+            tableView.insertRows(at: [indexPath], with: .automatic)
         }
     }
 }
