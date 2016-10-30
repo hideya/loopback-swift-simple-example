@@ -11,13 +11,13 @@ This basically is a Swift version of the iOS client found in this tutorial: ["Ho
 
 ### How to Try Out
 
- 1. Clone the repo: e.g. `https://github.com/hm-91/loopback-swift-simple-example.git`
+ 1. Clone the repo: e.g. `git clone https://github.com/hideya/loopback-swift-simple-example`
  *  `cd test-server`
  *  `npm install` to install the node modules required by the server.
  *  `node .` to run the server.
  *  Open the client Xcode project from `swift-client/CoffeeShops/CoffeeShops.xcodeproj`
  *  Build and run the client by typing command⌘-R.
- 
+
 ### Key Code Fragments
 
 The following code fragments show key parts of LoopBack iOS SDK usage with Swift.
