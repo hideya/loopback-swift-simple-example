@@ -1,4 +1,4 @@
-# LoopBack Client in Swift 2 - A Simple Example
+# LoopBack Client in Swift 3 - A Simple Example
 
 This is a simple LoopBack client written in Swift using an in-development version of LoopBack iOS SDK.
 
@@ -17,7 +17,7 @@ This basically is a Swift version of the iOS client found in this tutorial: ["Ho
  *  `node .` to run the server.
  *  Open the client Xcode project from `swift-client/CoffeeShops/CoffeeShops.xcodeproj`
  *  Build and run the client by typing command⌘-R.
- 
+
 ### Key Code Fragments
 
 The following code fragments show key parts of LoopBack iOS SDK usage with Swift.
@@ -46,20 +46,20 @@ class CoffeeShopRepository: LBPersistedModelRepository {
 Instantiation of the adapter and the repository:
 
 ```
-    let adapter = LBRESTAdapter(URL: NSURL(string: "http://localhost:3000/api"))
+    static let adapter = LBRESTAdapter(url: URL(string: "http://localhost:3000/api"))
     let coffeeShopRepo = adapter.repositoryWithClass(CoffeeShopRepository) as! CoffeeShopRepository
 ```
 
 Find all the models:
 
 ```
-    coffeeShopRepo.allWithSuccess(
-        { (models: [AnyObject]!) -> Void in
+    coffeeShopRepo.all(
+            success: { (models) -> Void in
             // success block
             let tableData = models as! [CoffeeShop]
             ...
         },
-        failure: { (error: NSError!) -> Void in
+        failure: { (error: Error?) -> Void in
             // failure block
             ...
         })
@@ -72,12 +72,12 @@ Create a new model:
     newCoffeeShop.name = nameField.text!
     newCoffeeShop.city = cityField.text!
 
-    newCoffeeShop.saveWithSuccess(
-        { () -> Void in
+    newCoffeeShop.save(
+            success: { () -> Void in
             // success block
             ...
         },
-        failure: { (error: NSError!) -> Void in
+        failure: { (error: Error?) -> Void in
             // failure block
             ...
         })
@@ -86,12 +86,13 @@ Create a new model:
 Delete an existing model:
 
 ```
-    coffeeShop.destroyWithSuccess(
-        { () -> Void in
+        coffeeShop.destroy(
+                success: { () -> Void in
+
             // success block
             ...
         },
-        failure: { (error: NSError!) -> Void in
+        failure: { (error: Error?) -> Void in
             // failure block
             ...
         })
