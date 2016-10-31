@@ -47,7 +47,8 @@ Instantiation of the adapter and the repository:
 
 ```
     static let adapter = LBRESTAdapter(url: URL(string: "http://localhost:3000/api"))
-    let coffeeShopRepo = adapter.repositoryWithClass(CoffeeShopRepository) as! CoffeeShopRepository
+    static let coffeeShopRepo = adapter?.repository(with: CoffeeShopRepository.self) as! CoffeeShopRepository
+
 ```
 
 Find all the models:
